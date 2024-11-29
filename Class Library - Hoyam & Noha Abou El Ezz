@@ -1,0 +1,149 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPYBftR7banxsAfdZ52hd7A",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Noha-Abouelezz/Epsilon-Project-01/blob/main/Class%20Library%20-%20Hoyam%20%26%20Noha%20Abou%20El%20Ezz\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 297
+        },
+        "id": "ADz6tkYwPslE",
+        "outputId": "f84283bb-ecbb-471b-bcc3-f7eafaca1cc3"
+      },
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "TypeError",
+          "evalue": "Library() takes no arguments",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-1-af4fd4959e06>\u001b[0m in \u001b[0;36m<cell line: 80>\u001b[0;34m()\u001b[0m\n\u001b[1;32m     78\u001b[0m             \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Invalid choice. Please select a number between 1 and 5.\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     79\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 80\u001b[0;31m \u001b[0mlibrary_system\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;32m<ipython-input-1-af4fd4959e06>\u001b[0m in \u001b[0;36mlibrary_system\u001b[0;34m()\u001b[0m\n\u001b[1;32m     40\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     41\u001b[0m \u001b[0;32mdef\u001b[0m \u001b[0mlibrary_system\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 42\u001b[0;31m     harry_library = Library(\n\u001b[0m\u001b[1;32m     43\u001b[0m         \u001b[0;34m\"CodeWithHarry\"\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     44\u001b[0m         \u001b[0;34m[\u001b[0m\u001b[0;34m'Python'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'Rich Daddy Poor Daddy'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'Harry Potter'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'C++ Basics'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'Algorithms by CLRS'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mTypeError\u001b[0m: Library() takes no arguments"
+          ]
+        }
+      ],
+      "source": [
+        "# Team of 2 , Hoyam and Noha Abou El Ezz\n",
+        "\n",
+        "class Library:\n",
+        "    def init(self, library_name, books_list):\n",
+        "        self.library_name = library_name\n",
+        "        self.books_list = books_list\n",
+        "        self.lended_books = {}\n",
+        "\n",
+        "    def display_books(self):\n",
+        "        if len(self.books_list) == 0:\n",
+        "            print(\"No books available in the library.\")\n",
+        "        else:\n",
+        "            print(f\"Books available in {self.library_name}:\")\n",
+        "            for book in self.books_list:\n",
+        "                print(f\"- {book}\")\n",
+        "\n",
+        "    def lend_book(self, user, book):\n",
+        "        if book in self.books_list:\n",
+        "            self.books_list.remove(book)\n",
+        "            self.lended_books[book] = user\n",
+        "            print(f\"{book} has been lent to {user}.\")\n",
+        "        elif book in self.lended_books:\n",
+        "            print(f\"Sorry, {book} is already lent to {self.lended_books[book]}.\")\n",
+        "        else:\n",
+        "            print(f\"Sorry, {book} is not available in the library.\")\n",
+        "\n",
+        "    def add_book(self, book):\n",
+        "        if book in self.books_list or book in self.lended_books:\n",
+        "            print(f\"{book} is already in the library collection.\")\n",
+        "        else:\n",
+        "            self.books_list.append(book)\n",
+        "            print(f\"{book} has been added to the library.\")\n",
+        "\n",
+        "    def return_book(self, book):\n",
+        "        if book in self.lended_books:\n",
+        "            user = self.lended_books.pop(book)\n",
+        "            self.books_list.append(book)\n",
+        "            print(f\"{book} has been returned by {user}.\")\n",
+        "        else:\n",
+        "            print(f\"{book} is not currently lent out.\")\n",
+        "\n",
+        "\n",
+        "def library_system():\n",
+        "    harry_library = Library(\n",
+        "        \"CodeWithHarry\",\n",
+        "        ['Python', 'Rich Daddy Poor Daddy', 'Harry Potter', 'C++ Basics', 'Algorithms by CLRS']\n",
+        "    )\n",
+        "\n",
+        "    print(f\"Welcome to {harry_library.library_name}!\")\n",
+        "    while True:\n",
+        "        print(\"\\nChoose an option:\")\n",
+        "        print(\"1. Display Books\")\n",
+        "        print(\"2. Lend a Book\")\n",
+        "        print(\"3. Add a Book\")\n",
+        "        print(\"4. Return a Book\")\n",
+        "        print(\"5. Exit\")\n",
+        "\n",
+        "        try:\n",
+        "            choice = int(input(\"Enter your choice: \"))\n",
+        "        except ValueError:\n",
+        "            print(\"Please enter a valid number.\")\n",
+        "            continue\n",
+        "\n",
+        "        if choice == 1:\n",
+        "            harry_library.display_books()\n",
+        "        elif choice == 2:\n",
+        "            user = input(\"Enter your name: \")\n",
+        "            book = input(\"Enter the name of the book you want to borrow: \")\n",
+        "            harry_library.lend_book(user, book)\n",
+        "        elif choice == 3:\n",
+        "            book = input(\"Enter the name of the book you want to add: \")\n",
+        "            harry_library.add_book(book)\n",
+        "        elif choice == 4:\n",
+        "            book = input(\"Enter the name of the book you want to return: \")\n",
+        "            harry_library.return_book(book)\n",
+        "        elif choice == 5:\n",
+        "            print(\"Thank you for visiting the library! Goodbye!\")\n",
+        "            break\n",
+        "        else:\n",
+        "            print(\"Invalid choice. Please select a number between 1 and 5.\")\n",
+        "\n",
+        "library_system()"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "W9FzlPuUP-bY"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
